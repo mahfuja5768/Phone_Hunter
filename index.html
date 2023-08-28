@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Phone Hunter</title>
+  </head>
+  <body>
+    <main class="container mx-auto my-4">
+      <!-- search section -->
+      <section class="grid place-content-center">
+        <h1 class="text-3xl font-bold py-5 text-center">Search your phone</h1>
+        <div class="form-control">
+          <div class="input-group">
+            <input
+              id="search_field"
+              type="text"
+              placeholder="Search your phone..."
+              class="input input-bordered outline-none hover:outline-none"
+            />
+            <button onclick="handleSearch()" class="btn btn-square bg-blue-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- display phones -->
+      <section class="my-12">
+        <!-- loader -->
+        <div class="text-center pb-5">
+          <span
+            id="loader"
+            class="hidden loading loading-spinner text-accent"
+          ></span>
+        </div>
+        <div
+          id="phone_container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        ></div>
+        <div id="show_all_container" class="hidden text-center my-5">
+          <button
+            onclick="handleShowAll()"
+            class="btn btn-primary my-3 rounded-lg bg-blue-600 text-white border-none hover:bg-blue-800"
+          >
+            Show All
+          </button>
+        </div>
+
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="phnDetails" class="modal modal-bottom sm:modal-middle">
+          <form method="dialog" class="modal-box">
+            <div id="modal_body" class="text-center"></div>
+            <div class="modal-action">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
